@@ -92,18 +92,30 @@ namespace SistemAcademico
 
         public static void CriarTurma()
         {
-            Professor professor = new Professor(1, "João Silva");
-            Professor professor2 = new Professor(2, "José Maria");
+            Console.WriteLine("Digite a matricula do professor ");
+            int matricula = int.Parse(Console.ReadLine());
 
-            Disciplina matematica = new Disciplina(101, "Matemática");
+            Console.WriteLine("Digite o nome do professor: ");
+            string nomeProfessor = Console.ReadLine();
 
-            Disciplina portugues = new Disciplina(102, "Português");
+            Professor professor = new Professor(matricula, nomeProfessor);
 
-            Turma turma = new Turma(10, matematica, professor);
-            Turma turma2 = new Turma(11, portugues, professor2);
+            Console.WriteLine("Digite o nome da disciplina:");
+            string nomeDisciplina = Console.ReadLine();
+
+            Console.WriteLine("Digite o código da disciplina: ");
+            int codDisciplina = int.Parse(Console.ReadLine());
+
+            Disciplina disciplina = new Disciplina(codDisciplina, nomeDisciplina);
+
+            Console.WriteLine("Digite o código da turma: ");
+            int codTurma = int.Parse(Console.ReadLine());
+
+            Turma turma = new Turma(codTurma, disciplina, professor);
 
             Turmas.Add(turma);
-            Turmas.Add(turma2);
+
+            Console.WriteLine("Turma criada");
 
         }
 
