@@ -10,6 +10,8 @@ namespace SistemAcademico
     {
         public int Matricula { get; set; }
         public string Nome { get; set; }
+
+        public Turma Turma { get; set; }
         public Professor(int matricula, string nome)
         {
             this.Matricula = matricula;

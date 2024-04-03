@@ -13,13 +13,16 @@ namespace SistemAcademico
 
         public Disciplina Disciplina { get; set; }
 
-        public List<Aluno>  Alunos {  get; set; } = new List<Aluno>();
+        public Professor Professor { get; set; }
 
-        public Turma(int Codigo, Disciplina Disciplina)
+        public List<Aluno> Alunos;
+
+        public Turma(int Codigo, Disciplina Disciplina, Professor professor)
         {
             this.Codigo = Codigo;
             this.Disciplina = Disciplina;
-
+            Professor = professor;
+            Alunos = new List<Aluno>();
         }
 
         public string addAluno(Aluno aluno)
@@ -27,6 +30,8 @@ namespace SistemAcademico
             if(Alunos.Count < 10)
             {
                 Alunos.Add(aluno);
+                aluno.AddTurma(this);
+
                 return "Aluno adicionado";
 
             } else
@@ -37,7 +42,8 @@ namespace SistemAcademico
         }
         public Boolean abrirTurma()
         {
-            if (Alunos.Count <= 10 && Alunos.Count >= 2 ) 
+            int numeroAlunos = Alunos.Count;
+            if (numeroAlunos >= 2 && numeroAlunos <= 10 ) 
             { 
                 return true;
             

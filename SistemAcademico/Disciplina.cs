@@ -11,6 +11,8 @@ namespace SistemAcademico
         public int Codigo { get; set; }
         public string Nome { get; set; }
 
+        public Turma Turma { get; set; }
+
         public Disciplina(int codigo, string nome) 
         { 
             this.Codigo = codigo;
